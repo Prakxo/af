@@ -223,6 +223,8 @@ build/src/boot/libc/%.o: OPTFLAGS := -O2
 build/src/boot/libc64/%.o: OPTFLAGS := -O2
 build/src/boot/libm/%.o: OPTFLAGS := -O2
 build/src/boot/libu64/%.o: OPTFLAGS := -O2
+build/src/code/lbrtc/%.o: OPTFLAGS := -O1 -g1
+
 
 # per-file flags
 
