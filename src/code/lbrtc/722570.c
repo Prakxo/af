@@ -30,8 +30,8 @@ s32 func_800FE8D0_jp(OSMesgQueue* mq, u8 v, u8* buf){
     osSetTimer(&B_80152480_jp, 0, 0, &B_801524A0_jp, &B_801524B8_jp);
     osRecvMesg(&B_801524A0_jp, NULL, OS_MESG_BLOCK);
 
-   if(ret == 0){
-        bcopy(&format, buf, 8);
+   if(ret == 0){ 
+        bcopy(&format.typeh, buf, 8);
         if (format.unkC & 1) {
             ret = 0x11;
         } else if (format.unkC & 1) {
