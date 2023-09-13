@@ -27,7 +27,7 @@ s32 func_800FE8D0_jp(OSMesgQueue* mq, u8 v, u8* buf){
 
     __osSiRelAccess();
 
-    osSetTimer(&B_80152480_jp, 0, 0, &B_801524A0_jp, &B_801524B8_jp);
+    osSetTimer(&B_80152480_jp, 0x36EE, 0, &B_801524A0_jp, &B_801524B8_jp);
     osRecvMesg(&B_801524A0_jp, NULL, OS_MESG_BLOCK);
 
    if(ret == 0){ 
@@ -49,7 +49,6 @@ s32 func_800FE8D0_jp(OSMesgQueue* mq, u8 v, u8* buf){
     return ret;
 }
 
-
 s32 func_800FEABC_jp(u8 v, u8* buf){
     s32 i;
     u8* ptr = (u8*)&__osEepPifRam;
@@ -62,14 +61,15 @@ s32 func_800FEABC_jp(u8 v, u8* buf){
     __osEepPifRam.pifstatus = 1;
 
     requestformat.dummy = 0xA;
-    requestformat.txsize = 1;
-    requestformat.rxsize = 8;
-    requestformat.cmd = v;
+    requestformat.rxsize = 1; 
+    requestformat.txsize = 8;
+    requestformat.cmd = v; 
 
     for (i = 0; i < 8; i++){
-        *buf++ = *ptr;
+        (&requestformat.dummy)[i+4] = *buf++;
+        
     }
-
+ 
     for (i = 0; i < 4; i++) {
         *ptr++ = 0; 
     }

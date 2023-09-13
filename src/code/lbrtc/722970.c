@@ -4,7 +4,7 @@ extern s32 D_801160C0_jp;
 
 
 s32 func_800FECD0_jp(OSMesgQueue* mq){
-    unkRTC rtc;
+    unkRTC rtc[1];
     s32 ret;
     u8 _480t;
 
@@ -18,7 +18,7 @@ s32 func_800FECD0_jp(OSMesgQueue* mq){
         if(_480t & 0x80){
             ret = func_800FEE10_jp(mq, 0, &rtc);
             if((ret == 0) || (ret == 0x10)){ 
-                rtc.unk1 &= ~6;
+                rtc[0].unk1 &= ~6;
                 ret = func_800FE8D0_jp(mq, 0 , &rtc);
             }
         }

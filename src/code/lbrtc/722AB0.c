@@ -25,7 +25,7 @@ s32 func_800FEE10_jp(OSMesgQueue* mq, u8 v, u8* buf){
     
 
     if(ret == 0){
-        bcopy(&format, buf, 8);
+        bcopy(&format.typeh, buf, 8);
         if (format.unkC & 1) {
             ret = 0x11;
         } else if (format.unkC & 1) {
